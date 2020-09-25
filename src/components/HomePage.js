@@ -10,15 +10,27 @@ export default function HomePage({ setPetsDb, jwtToken, petsDb }) {
     });
     setPetsDb(allPets.data);
   }
+  async function showMyPets() {
+    let myPets = await axios.post("http://localhost:4000/get-your-pets", {
+      jwt: jwtToken,
+    });
+    setPetsDb(myPets.data);
+  }
+  async function showLikedPets() {
+    let likedPets = await axios.post("http://localhost:4000/get-liked-pets", {
+      jwt: jwtToken,
+    });
+    setPetsDb(likedPets.data);
+  }
   return (
     <div style={styles.homeContainer}>
       <div>
         <button onClick={() => showAllPets()}>Show All Pets</button>
-        {/* <button onClick={() => showMyPets()}>Show My Pets</button>
-        <button onClick={() => showLikedPets()}>Show Liked Pets</button> */}
+        <button onClick={() => showMyPets()}>Show My Pets</button>
+        <button onClick={() => showLikedPets()}>Show Liked Pets</button>
       </div>
       <div>
-        <PetCardContainer pets={petsDb} />
+        <PetCardContainer pets={petsDb} jwt={jwtToken} setPetsDb={setPetsDb} />
       </div>
     </div>
   );
