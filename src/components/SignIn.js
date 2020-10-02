@@ -18,15 +18,15 @@ export default function SignIn({ setJwtToken }) {
       console.log(error);
     }
   }
-  return (
-    <div>
-      Username: <input onChange={(event) => setUsername(event.target.value)} />
-      Password:{" "}
-      <input
-        type="password"
-        onChange={(event) => setPassword(event.target.value)}
-      />
-      <button onClick={() => login()}>Sign In</button>
-    </div>
-  );
+  // return (
+  //   <div>
+  //     Username: <input onChange={(event) => setUsername(event.target.value)} />
+  //     Password:{" "}
+  //     <input
+  //       type="password"
+  //       onChange={(event) => setPassword(event.target.value)}
+  //     />
+  //     <button onClick={() => login()}>Sign In</button>
+  //   </div>
+  // );
 }

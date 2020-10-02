@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import PetCardContainer from "./PetCardContainer";
 import { StylesProvider } from "@material-ui/core";
+import Navbar from "./Navbar";
 
 export default function HomePage({ setPetsDb, jwtToken, petsDb }) {
   async function showAllPets() {
@@ -25,9 +26,7 @@ export default function HomePage({ setPetsDb, jwtToken, petsDb }) {
   return (
     <div style={styles.homeContainer}>
       <div>
-        <button onClick={() => showAllPets()}>Show All Pets</button>
-        <button onClick={() => showMyPets()}>Show My Pets</button>
-        <button onClick={() => showLikedPets()}>Show Liked Pets</button>
+        <Navbar></Navbar>
       </div>
       <div>
         <PetCardContainer pets={petsDb} jwt={jwtToken} setPetsDb={setPetsDb} />
